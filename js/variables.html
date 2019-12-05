@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Variables</title>
+		<meta charset="UTF-8">
+		<script>
+			function indiceMasaCorporala(greutate, inaltime){
+				var imc = greutate / inaltime / inaltime;
+				var mesaj = "La greutatea de " +
+						greutate+
+						" si inaltimea de "+
+						inaltime + 
+						" esti ";
+						
+				if (imc<20) {
+					return mesaj + "subponderal";
+				} else if (imc<25) {
+					return mesaj + "normal";
+				} else if (imc<30) {
+					return mesaj + "supraponderal";
+				} else if (imc<40) {
+					return mesaj + "obez";
+				} else {
+					return mesaj + "de dus la doctor";
+				}
+			}
+		
+			var varsta = 30;
+			var varstaStudent = 45;
+			var nume = "Nourescu";
+			var prenume = "Bogdan";
+			var greutate = 75.5;
+			var inaltime = 1.75;
+			var studenti = [
+				"Alexandru Simion",
+				"Alina Smarandache",
+				"Ana-Maria Bitin",
+				"Anca-Maria Diaconu",
+			];
+			varsta = varsta - 20;
+			varsta = varsta * 2;
+			varsta = varsta / 2;
+			
+			//Comentariu inline;
+			/*
+				Comentariu Inline-Block
+				Pe mai multe linii
+				....
+			*/
+			
+			
+			varsta +=5;
+			//varsta  = varsta + 5;
+			varsta++;
+			++varsta;
+			//varsta = varsta + 1;
+			varsta--;
+			--varsta;
+			//varsta = varsta - 1;
+			varsta -=5;
+			varsta *=5;
+			varsta /=5;
+			
+			varsta = 5;
+			console.log(varsta++);
+			
+			var indiceleMeu = indiceMasaCorporala(65, 1.73);
+			console.log(indiceleMeu);
+			
+			console.log(indiceMasaCorporala(75, 1.73));
+			console.log(indiceMasaCorporala(80, 1.73));
+			console.log(indiceMasaCorporala(85, 1.73));
+			console.log(indiceMasaCorporala(90, 1.73));
+			console.log(indiceMasaCorporala(95, 1.73));
+			console.log(indiceMasaCorporala(100, 1.73));
+			var a = 5;
+			var b=7;
+			console.log(indiceMasaCorporala(a,b ));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
