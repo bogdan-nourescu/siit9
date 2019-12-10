@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Suma</title>
+		<meta charset="UTF-8">
+		<script>
+			/*
+				Suma numerelor pare < 100
+			*/
+			var suma = 0;
+			for(var i=0;i<100;i++){
+				if(i%2===0){
+					suma += i;
+					//echivalent: suma=suma+i;
+				}
+			}
+			console.log(suma);
+			
+			function sumaNumerelorPare(numarLimita){
+				var suma = 0;
+				for(var i=0;i<numarLimita;i+=2){
+					suma += i;
+					//echivalent: suma=suma+i;
+				}
+				return suma;
+			}
+			console.log(sumaNumerelorPare(100));
+			
+			
+			/*for(var i=anaAreMere.length-1;i>=0;i--){
+				console.log(anaAreMere[i]);
+			}
+			var suma = 0;
+			for(var i=0;i<numarLimita;i+=2){
+				suma += i;
+				//echivalent: suma=suma+i;
+			}*/
+			function inversa(str){
+				var strInvers = ""; 
+				for(var i=str.length-1;i>=0;i--){
+					strInvers+=str[i];
+				}
+				return strInvers;
+			}
+			console.log(inversa("ABCDEFGH"));
+			
+			function palindrom(str){
+				return str===inversa(str);
+			}
+			function palindrom2(str){
+				for(var i=0;i<str.length;i++){
+					if(str[i]!==str[str.length-i-1]){
+						return false;
+					}
+				}
+				return true;
+			}
+			console.log(palindrom("ABCCBA"));
+			console.log(palindrom("ABCBA"));
+			console.log(palindrom("ABDBBA"));
+			console.log(palindrom("ABASBA"));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
