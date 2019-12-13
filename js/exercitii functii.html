@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exercitii</title>
+		<meta charset="UTF-8">
+		<script>
+			/*
+			Write a JavaScript program to convert temperatures to and from 
+			Celsius, Fahrenheit.
+			Formula : c/5 = (f-32)/9
+			where c = temperature in Celsius and f = temperature in Fahrenheit
+			*/
+			function celsiusToFahrenheit(c){
+				var f = c/5*9+32;
+				return f;
+			}
+			function fahrenheitToCelsius(f){
+				var c = (f-32)/9*5;
+				return c;
+			}
+			console.log(celsiusToFahrenheit(-50));
+			console.log(celsiusToFahrenheit(-40));
+			console.log(celsiusToFahrenheit(-30));
+			console.log(celsiusToFahrenheit(-20));
+			console.log(celsiusToFahrenheit(0));
+			console.log(celsiusToFahrenheit(10));
+			console.log(celsiusToFahrenheit(20));
+			
+			
+			console.log(fahrenheitToCelsius(-50));
+			console.log(fahrenheitToCelsius(-40));
+			console.log(fahrenheitToCelsius(-30));
+			console.log(fahrenheitToCelsius(-20));
+			console.log(fahrenheitToCelsius(0));
+			console.log(fahrenheitToCelsius(10));
+			console.log(fahrenheitToCelsius(20));
+			
+			
+			/*
+			Write a JavaScript program to get the difference 
+			between a given number and 13, 
+			if the number is greater than 13 
+			return double the absolute difference.
+			*/
+			function difference13(n){
+				if(n>13){
+					return (n-13)*2;
+				}else{
+					return n-13;
+				}
+			}
+			console.log(difference13(30));
+			console.log(difference13(13));
+			console.log(difference13(10));
+			
+			/*
+			Write a JavaScript program to compute the sum of the two given integers. 
+			If the two values are same, then returns triple their sum. 
+			*/
+			function sum2Integers(a,b){
+				if(a===b){
+					return a*6;
+				}else{
+					return a+b;
+				}
+			}
+			console.log(sum2Integers(3,3));
+			console.log(sum2Integers(1,5));
+			console.log(sum2Integers(-3,3));
+			console.log(sum2Integers(0,2));
+			
+			/*
+			Write a JavaScript program to compute the absolute difference 
+			between a specified number and 19. 
+			Returns triple their absolute difference if the 
+			specified number is greater than 19.
+			*/
+			function difference19(n){
+				if(n>19){
+					return (n-19)*3
+				}else{
+					return n-19;
+				}
+			}
+			function difference19(n){
+				return (n>19)?(n-19)*3:n-19;
+				//return (n-19)*((n>19)?3:1);
+			}
+			
+			console.log(difference19(30));
+			console.log(difference19(19));
+			console.log(difference19(10));
+			/*
+			Write a JavaScript program to check two given numbers and 
+			return true if one of the number is 50 or if their sum is 50.
+			*/
+			function compare50(a,b){
+				return (a===50 || b===50 || a+b===50);
+			}
+			console.log(compare50(30,50));
+			console.log(compare50(50,30));
+			console.log(compare50(25,25));
+			console.log(compare50(30,25));
+			
+			/*
+			Write a JavaScript program to check from 
+			two given integers, if one is positive 
+			and one is negative.
+			*/
+			function positiveNegative(a,b){
+				return ( a>=0 && b<0 ) || ( a<0 && b>=0 )
+			}
+			console.log(positiveNegative(0,0) === false);
+			console.log(positiveNegative(0,9) === false);
+			console.log(positiveNegative(9,9) === false);
+			console.log(positiveNegative(9,0) === false);
+			console.log(positiveNegative(-9,-9) === false);
+			
+			console.log(positiveNegative(0,-9) === true);
+			console.log(positiveNegative(-9,0) === true);
+			console.log(positiveNegative(9,-9) === true);
+			console.log(positiveNegative(-9,9) === true);
+			
+			/*
+			Write a JavaScript program to create a new string 
+			adding "Py" in front of a given string. 
+			If the given string begins with "Py" then return the original string.
+			*/
+			function startWithPy(str){
+				if(str[0]==="P" && str[1]==="y"){
+					return str;
+				}else{
+					return "Py"+str;
+				}
+			}
+			function abs(nr){
+				//Math.abs()
+				return nr<0?nr*-1:nr;
+			}
+			/*
+			Write a JavaScript program check if a given positive number 
+			is a multiple of 3 or a multiple of 7.
+			*/
+			function multipleOf3Or7(val){
+				return (val%3===0) || (val%7===0)
+			}
+			
+			/*
+			Write a JavaScript program to check if two given integer values 
+			are in the range 50..99 (inclusive). 
+			Return true if either of them are in the said range.
+			*/
+			function between50And99(a,b){
+				return ( a>=50 && a<=99 ) || (b>=50 && b<=99)
+			}
+			/*
+			Write a JavaScript program to check if three 
+			given integer values are in the range 50..99 (inclusive). 
+			Return true if one or more of them are in the said range. 
+			*/
+			function between50And99_3Numbers(a,b,c){
+				return ( a>=50 && a<=99 ) || (b>=50 && b<=99) || (c>=50 && c<=99)
+				
+				// !((a>=50 && a<=99) || (b>=50 && b<=99) || (c>=50 && c<=99))
+				// !(a>=50 && a<=99) && !(b>=50 && b<=99) && !(c>=50 && c<=99)
+				// (a<50 || a>99) && (b<50 || b>99) && (c<50 || c>99)
+			}
+			
+			/*
+			Write a JavaScript program to find the largest of three given integers.
+			*/
+			function largestOf3(a,b,c){
+				if( a >= b && a>=c){
+					return a;
+				} else if(b>=a && b>=c){
+					return b
+				}else {
+					return c;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
