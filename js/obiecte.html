@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Obiecte</title>
+		<meta charset="UTF-8">
+		<script>
+			var persoana = {
+				"nume": "Nourescu",
+				"prenume": "Bogdan",
+				"dataNasterii": "1988-07-01",
+				"inaltime": 1.75,
+				"instructor": true
+			}
+			
+			//json = javascript object notation
+
+			var elevi = [
+				{
+					nume:"Ion1",
+					note:[5,10,2],
+					teza: 8
+				},
+				{
+					nume:"Ion2",
+					note:[9,9,8],
+					teza: 8
+				},
+				{
+					nume:"Ion3",
+					note:[10,10,10,10],
+					teza: 9
+				},
+				{
+					nume:"Ion4",
+					note:[6,7,6],
+					teza: 8
+				},
+				{
+					nume:"Ion5",
+					note:[7,9],
+					teza: 9
+				}
+			];
+			
+			function medie(note, teza){
+				var sum = 0;
+				for(var i=0;i<note.length;i++){
+					sum+=note[i];
+				}
+				var medieNoteFaraTeza = sum/note.length;
+				medieNoteFaraTeza = Math.round(medieNoteFaraTeza*100)/100;
+				var medieFinala = (medieNoteFaraTeza*3+teza)/4;
+				return medieFinala;
+			}
+			
+			for(var i=0;i<elevi.length;i++){
+				var elev = elevi[i];
+				console.log(
+					elev.nume, 
+					medie(elev.note,elev.teza)
+				);
+			}
+			
+			
+			if(x==="laptop"){
+				//.....
+			} else if( x==="desktop"){
+				//.....
+			} else if( x==="monitor"){
+				//.....
+			} else if( x==="tastatura"){
+				//.....
+			} else {
+				//.....
+			}
+			
+			switch(x){
+				case "laptop":
+					//...
+					break;
+				case "desktop":
+					//...
+					break;
+				case "monitor":
+					//...
+					break;
+				case "tastatura":
+					//...
+					break;
+				default:
+					//...
+			}
+			
+			switch(x){
+				case "laptop":
+				case "desktop":
+				case "desktop":
+				case "desktop":
+					//...
+					break;
+				case "monitor":
+					//...
+					break;
+				case "tastatura":
+					//...
+					break;
+				default:
+					//...
+			}
+			
+			var azi = new Date();
+			var ieri = new Date(2019,12,16);
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+

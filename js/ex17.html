@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Obiecte</title>
+		<meta charset="UTF-8">
+		<script>
+			function format(n){
+				var str = "";
+				for(var i=0;n>0; i++){
+					var c = n%10;
+					n = Math.floor(n/10);
+					if(i%3===0 && i!==0){
+						str = ","+str;
+					}
+					str = c + str;
+				}
+				return str;
+			}
+			console.log(format(8127321));
+			console.log(format(127321));
+			console.log(format(27321));
+			console.log(format(7321));
+			console.log(format(321));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
