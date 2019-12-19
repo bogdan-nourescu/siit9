@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Obiecte</title>
+		<meta charset="UTF-8">
+		<script>
+			/*
+			1. Function that returns an array containing the positions of the largest 
+			value from an array given as parameter
+			*/
+			function maxArr (arr){
+				var max = arr[0];
+				for (var i=1; i<arr.length; i++) {
+					if (max<arr[i]) {
+						max= arr[i];
+					}
+				}
+				return max;
+			}
+			function getAllPos(arr){
+				var max = maxArr(arr);
+				var pos = [];
+				for (var i=0; i<arr.length; i++) {
+					if (max===arr[i]) {
+						pos.push(i);
+					}
+				}
+				return pos;
+			}
+			
+			function getAllPos(arr){
+				var pos = [0];
+				var max = arr[0];
+				for (var i=1; i<arr.length; i++) {
+					if (max===arr[i]) {
+						pos.push(i);
+					} else if (max<arr[i]) {
+						max= arr[i];
+						pos = [i];
+					}
+				}
+				return pos;
+			}
+			console.log(getAllPos([1,7,2,10,1,7,10]));
+			
+			/*
+			3. Function that takes 1 parameter: an arrray and returns the 
+			largest difference between 2 adjacent values in the array
+			*/
+			function maxDiff(arr){
+				var max = arr[0]-arr[1];
+				for(var i=1;i<arr.length-1;i++){
+					if(max<arr[i]-arr[i+1]){
+						max = arr[i]-arr[i+1];
+					}
+				}
+				return max;
+			}
+			
+			
+			
+			
+			
+			/*
+2. Functions that takes 2 parameters: an array and a number N. 
+Return the value of the Nth largest value
+*/
+function maxSmallerThan(arr, oldMax){
+	var max = -Infinity;
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]<oldMax){
+			if(max<arr[i]){
+				max= arr[i];
+			}
+		}
+	}
+	return max;
+}
+function largestValue(arr,n){
+	var max = Infinity;
+	for(var i=0;i<n;i++){
+		max= maxSmallerThan(arr, max);
+	}
+	return max;
+}
+
+
+
+/*
+4. Write a JavaScript program to find the maximum possible sum of some of its k 
+consecutive numbers (numbers that follow each other in order.) of a given array of 
+positive integers.
+*/
+
+
+
+function maxOfSum(arr, k){
+	var max=0;
+	for(var i=0;i<arr.length-k+1;i++){
+		var sum= 0;
+		for(var j=i; j<i+k;j++){
+			sum+=arr[j];
+		}
+		if(max<sum){
+			max = sum;
+		}
+	}
+	return max;
+}
+
+
+			*/
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
+
+
+
+
+
+

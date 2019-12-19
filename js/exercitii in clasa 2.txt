@@ -1,0 +1,15 @@
+1. Function that returns an array containing the positions of the largest value from 
+an array given as parameter
+
+
+2. Functions that takes 2 parameters: an array and a number N. Return the value of the 
+Nth largest value
+
+
+3. Function that takes 1 parameter: an arrray and returns the largest difference 
+between 2 adjacent values in the array
+
+
+4. Write a JavaScript program to find the maximum possible sum of some of its k 
+consecutive numbers (numbers that follow each other in order.) of a given array of 
+positive integers.
