@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			.hidden{
+				display:none;
+			}
+		
+			.loader {
+			  border: 10px solid #f3f3f3;
+			  border-radius: 50%;
+			  border-top: 10px solid red;
+			  width: 300px;
+			  height: 300px;
+			  -webkit-animation: spin 1.5s linear infinite; /* Safari */
+			  animation: spin 1.5s linear infinite;
+			}
+
+			/* Safari */
+			@-webkit-keyframes spin {
+			  0% { -webkit-transform: rotate(0deg); }
+			  100% { -webkit-transform: rotate(360deg); }
+			}
+
+			@keyframes spin {
+			  0% { transform: rotate(0deg); }
+			  100% { transform: rotate(360deg); }
+			}
+		</style>
+		<script>
+			function showMain(){
+				setTimeout(function(){
+				
+					var main = document.querySelector("#mainContent");
+					main.classList.remove("hidden");
+					
+					var main = document.querySelector(".loader");
+					main.classList.add("hidden");
+				
+				}, 2000);
+				
+			}
+		</script>
+	</head>
+	<body onload="showMain();">
+		<div class="loader"></div>
+		<div id="mainContent" class="hidden fancy">
+			Continutul aceasta este ascuns pana cand nu se termina de incarcat pagina
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			var colors = ["red","green","blue","salmon",
+			"yellow","teal","magenta","fuchsia","cyan","brown","pink"];
+			function incrementCounter(){
+				var counterSpan = document.querySelector("#counter");
+				var counterBtn = document.querySelector("#counterBtn");
+				
+				//counterSpan.innerText
+				//counterSpan.innerHTML
+				var oldValue = Number(counterSpan.innerText);
+				counterBtn.style.backgroundColor = colors[oldValue % colors.length];
+				
+				counterSpan.innerText = oldValue + 1;
+			}
+		</script>
+	</head>
+	<body >
+		<p>Ai dat click pe buton de <b id="counter">0</b> ori.</p>
+		<button id="counterBtn" onclick="incrementCounter()">Click me</button>
+	</body>
+</html>
+
