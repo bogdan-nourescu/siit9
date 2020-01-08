@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			#userValue{
+				width:50px;
+			}
+		</style>
+		<script>
+			function newGame(){
+				var val1 = Math.floor(Math.random() * 11);//[0,11)
+				var val2 = Math.floor(Math.random() * 11);
+				
+				document.querySelector("#firstNumber").innerText = val1;
+				document.querySelector("#secondNumber").innerText = val2;
+			}
+			function validate(){
+				var val1 = Number(document.querySelector("#firstNumber").innerText);
+				var val2 = Number(document.querySelector("#secondNumber").innerText);
+				
+				var val = Number(document.querySelector("#userValue").value);
+				if(val1*val2 === val){
+					alert("Bravo");
+					newGame();
+					document.querySelector("#userValue").value = "";
+				}else{
+					alert("Mai incearca");
+				}
+			}
+		</script>
+	</head>
+	<body onload="newGame();">
+		<div>
+			<span id="firstNumber"></span> x 
+			<span id="secondNumber"></span> = 
+			<input id="userValue" type="number" /> 
+			<button onclick="validate();">Verifica</button>
+		</div>
+	</body>
+</html>
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			.green{
+				background-color:green;
+			}
+		</style>
+		<script>
+			function checkBiggerValue(){
+				/*
+				var one = document.querySelector("#one");
+				var val1 = Number(one.value);
+				*/
+				var val1 = Number(document.querySelector("#one").value);
+				var val2 = Number(document.querySelector("#two").value);
+				if(val1>val2){
+					document.querySelector("#one").classList.add("green");
+					document.querySelector("#two").classList.remove("green");
+				}else if(val1<val2){
+					document.querySelector("#one").classList.remove("green");
+					document.querySelector("#two").classList.add("green");
+				} else{
+					document.querySelector("#one").classList.add("green");
+					document.querySelector("#two").classList.add("green");
+				}
+			}
+		</script>
+	</head>
+	<body >
+		<input type="text" id="one"/>
+		<input type="text" id="two"/>
+
+		<button id="counterBtn" onclick="checkBiggerValue()">Click me</button>
+	</body>
+</html>
+
