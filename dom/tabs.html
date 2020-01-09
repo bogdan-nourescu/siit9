@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			.hidden{
+				display:none;
+			}
+			button.tab.active{
+				background-color:red;
+			}
+			
+		</style>
+		<script>
+			function showTab(index){
+		
+				/*
+					document.querySelector("selector de css") ->Element de HTML
+					document.querySelectorAll("selector de css")-> Array de elemente de HTML
+					document.getElementById("id") ->Element de HTML
+					document.getElementsByClassName("class") -> Array de elemente de HTML
+					document.getElementsByTagName("nume de tag") -> Array de elemente de HTML
+					
+					innerText = "asdasd"
+					innerHTML = "<div>aqweqwe</div>"
+					value = "Bogdan"
+					classList.add("nume clasa")
+					classList.remove("nume clasa")
+					style.backgroundColor = "red"
+					src = "http://google.com"
+					
+				*/
+			
+				var pageToHide = document.querySelector("div.page:not(.hidden)"); //la care trebuie sa adaug clasa hidden
+				var tabToUnfocus = document.querySelector("button.tab.active"); //butonul la care trebuie sa sterg clasa active
+				
+				pageToHide.classList.add("hidden");
+				tabToUnfocus.classList.remove("active");
+				
+				document.querySelector("button.tab:nth-child("+index+")").classList.add("active");
+				document.querySelector("div.page:nth-child("+index+")").classList.remove("hidden");
+			}
+		</script>
+	</head>
+	<body>
+		<div id="tabs" style="">
+			<button class="tab active" onclick="showTab(1);">1</button>
+			<button class="tab" onclick="showTab(2);">2</button>
+			<button class="tab" onclick="showTab(3);">3</button>
+			<button class="tab" onclick="showTab(4);">4</button>
+			<button class="tab" onclick="showTab(5);">5</button>
+		</div>
+		
+		<div id="content">
+			<div class="page">Pagina 1</div>
+			<div class="page hidden">Pagina 2</div>
+			<div class="page hidden">Pagina 3</div>
+			<div class="page hidden">Pagina 4</div>
+			<div class="page hidden">Pagina 5</div>
+		</div>
+		
+		
+	</body>
+</html>
+
