@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			.invalid{
+				border:1px solid red;
+			}
+			
+			
+		</style>
+		<script>
+		
+		//?numeClient=asdasda&toc=on
+			function validare(event){
+				event.preventDefault();
+			
+				var nume = document.querySelector("[name='numeClient']").value;
+				if(nume.length<3){
+					document.querySelector("[name='numeClient']").classList.add("invalid");
+					
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<p>
+		<form onsubmit="validare(event);">
+			<fieldset>
+				<legend>Detalii client</legend>
+				<label>Nume Client<input type="text" name="numeClient" /></label> <br/>
+				<label><input type="checkbox" name="toc"/>Termeni si conditii</label> <br/>
+				
+				
+				<input type="submit"/>
+			</fieldset>
+		</form>
+		
+		
+	</body>
+</html>
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+		
+			.active{
+				background-color: blue;
+			}
+			
+			.hidden{
+				display: none;
+			}
+			
+		</style>
+		<script>
+		
+			function showPage(index){
+				document.querySelector("button.active").classList.remove("active");
+				document.querySelector(".page:not(.hidden)").classList.add("hidden");
+
+				document.querySelectorAll("button")[index-1].classList.add("active");
+				document.querySelectorAll(".page")[index-1].classList.remove("hidden");
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		<div>
+			<button onclick="showPage(1);">Section 1</button><br>
+			<div id="page1" class="hidden page">pagina 1</div><br>
+			
+			<button onclick="showPage(2);">Section 2</button><br>
+			<div id="page2" class="hidden page">pagina 2</></div><br>
+			
+			<button onclick="showPage(3);" class="active">Section 3</button><br>
+			<div id="page3" class="page">pagina 3</div><br>
+			
+			<button onclick="showPage(4);">Section 4</button><br>
+			<div id="page4" class="hidden page">pagina 4</></div><br>
+		</div>
+		
+	</body>
+</html>
+
