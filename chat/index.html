@@ -22,6 +22,7 @@
 			#displayArea{
 				flex: 1;
 				background-color: #f0f0de;
+				overflow:auto;
 			}
 			#chatArea{
 				display:flex;
@@ -54,10 +55,62 @@
 			}
 		</style>
 		<script>
-		
+			var chatMessages = [
+				{
+					message:"Not as much as i do :) ",
+					user: "Florin",
+					date:"2020-01-16 19:29:00 GMT+2"
+				},				
+				{
+					message:"I love it even more",
+					user: "Bogdan",
+					date:"2020-01-16 19:30:00 GMT+2"
+				},
+				{
+					message:"So do i !!!",
+					user: "Florin",
+					date:"2020-01-16 19:36:00 GMT+2"
+				},
+				{
+					message:"I love javascript!!",
+					user: "Bogdan",
+					date:"2020-01-16 19:37:00 GMT+2"
+				}
+			];
+			function draw(){
+				var str = "";
+				for(var i=0;i<chatMessages.length;i++){
+					var chatMessage = chatMessages[i];
+					str+=`
+						<div>
+							<div class="message">
+								<div >
+									<span class="user">${chatMessage.user}</span>
+									<span class="date">${chatMessage.date}</span>
+								</div>
+								<pre>${chatMessage.message}</pre>
+							</div>
+						</div>
+					`;
+				}
+				document.querySelector("#displayArea").innerHTML = str;
+			}
+			function addMessage(){
+				var message = document.querySelector("#messageBox").value;
+				if(message.length>0){
+					var chatMessage = {
+						message: message,
+						user: "Bogdan",
+						date: new Date().toISOString()
+					}
+					chatMessages.push(chatMessage);
+					draw();
+					document.querySelector("#messageBox").value = "";
+				}
+			}
 		</script>
 	</head>
-	<body>
+	<body onload="draw()">
 		<div id="displayArea">
 			<div>
 				<div class="message">
@@ -80,7 +133,7 @@
 		</div>
 		<div id="chatArea">
 			<textarea id="messageBox"></textarea>
-			<img id="postBtn" src="arrow.svg" />
+			<img id="postBtn" src="arrow.svg" onclick="addMessage()" />
 		</div>
 		
 	</body>
