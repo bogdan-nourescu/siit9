@@ -45,6 +45,7 @@
 				color:purple;
 				font-size:12px;
 				font-style: italic;
+				float: right;
 			}
 			.message{
 				border:1px solid blue;
@@ -86,7 +87,7 @@
 							<div class="message">
 								<div >
 									<span class="user">${chatMessage.user}</span>
-									<span class="date">${chatMessage.date}</span>
+									<span class="date">${timeAgo(chatMessage.date)}</span>
 								</div>
 								<pre>${chatMessage.message}</pre>
 							</div>
@@ -107,6 +108,27 @@
 					draw();
 					document.querySelector("#messageBox").value = "";
 				}
+			}
+			function timeAgo(date){
+				var now = new Date();
+				var then = new Date(date);
+				var diff = now.getTime()-then.getTime();
+				if(diff<60*1000){
+					return "less than 1min ago";
+				}
+				if(diff<60*60*1000){
+					return `${Math.floor(diff/60/1000)}min ago`;
+				}
+				if(diff<24*60*60*1000){
+					return `${Math.floor(diff/60/60/1000)}h ago`;
+				}
+				if(diff<30*24*60*60*1000){
+					return `${Math.floor(diff/24/60/60/1000)}days ago`;
+				}
+				if(diff<365*24*60*60*1000){
+					return `${Math.floor(diff/30/24/60/60/1000)}months ago`;
+				}
+				return `${Math.floor(diff/365/24/60/60/1000)}years ago`;
 			}
 		</script>
 	</head>
