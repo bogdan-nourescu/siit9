@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			html, body{
+				width:100%;
+				height:100%;
+				margin:0;
+				padding:0;
+			}
+			body{
+				display:flex;
+				flex-direction: column;
+			}
+			#postBtn {
+				width: 40px;
+				box-sizing: border-box;
+				background-color: #f0f0de;
+			}
+			#displayArea{
+				flex: 1;
+				background-color: #f0f0de;
+			}
+			#chatArea{
+				display:flex;
+				align-items: stretch ;
+			}
+			#messageBox{
+				flex:1;
+				min-height:50px;
+				max-height:100px;
+			}
+			pre{
+				margin:0;
+				font-size:16px;
+			}
+			.user{
+				color:blue;
+				font-size:12px;
+			}
+			.date{
+				color:purple;
+				font-size:12px;
+				font-style: italic;
+			}
+			.message{
+				border:1px solid blue;
+				background-color:white;
+				border-radius:40px;
+				padding:0 10px;
+				display: inline-block;
+			}
+		</style>
+		<script>
+		
+		</script>
+	</head>
+	<body>
+		<div id="displayArea">
+			<div>
+				<div class="message">
+					<div >
+						<span class="user">Bogdan</span>
+						<span class="date">5 min ago</span>
+					</div>
+					<pre>I love javascript!!</pre>
+				</div>
+			</div>
+			<div>
+				<div class="message">
+					<div >
+						<span class="user">Bogdan</span>
+						<span class="date">5 min ago</span>
+					</div>
+					<pre>I love javascript!!</pre>
+				</div>
+			</div>
+		</div>
+		<div id="chatArea">
+			<textarea id="messageBox"></textarea>
+			<img id="postBtn" src="arrow.svg" />
+		</div>
+		
+	</body>
+</html>
+
