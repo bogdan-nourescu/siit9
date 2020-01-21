@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Curs Valutar</title>
+		<meta charset="UTF-8">
+		<style>
+			.icon{
+				max-width:35px;
+			}
+			
+		</style>
+		<script>
+			async function getCursValutar(){
+				var responseAzi  = await fetch("http://data.fixer.io/api/latest?access_key=bab6dc180ed5d2d17a7bd00df96ba187");
+				var rezultatAzi = await responseAzi.json();
+				//yyyy-mm-dd
+				var dataDeAzi = new Date(rezultatAzi.date);
+				//24 ore, 60 min, 60 secunde, 1000 milisecunde
+				var dataDeIeri = new Date(dataDeAzi.getTime()-24*60*60*1000);
+				var ieri = dataDeIeri.toISOString().substring(0,10);
+				
+				var responseIeri  = await fetch(`http://data.fixer.io/api/${ieri}?access_key=bab6dc180ed5d2d17a7bd00df96ba187`);
+				var rezultatIeri = await responseIeri.json();
+				
+				var str = "";
+				for( var i in rezultatAzi.rates){
+					var imagine;
+					if(rezultatAzi.rates[i]>rezultatIeri.rates[i]){
+						imagine="green-arrow.jpg"
+					}else{
+						imagine="red-arrow.png"
+					}
+					str+=`
+						<tr>
+							<td>${i}</td>
+							<td>${rezultatIeri.rates[i]}</td>
+							<td>${rezultatAzi.rates[i]}</td>
+							<td><img class="icon" src="${imagine}" /></td>
+						</tr>`
+				}
+				document.querySelector("table tbody").innerHTML = str;
+				//....
+			}
+			async function x (){
+				await getCursValutar();
+			}
+		</script>
+	</head>
+	<body onload="getCursValutar();">
+		<table border="1" style="border-collapse:collapse;">
+			<thead>
+				<tr>
+					<td>Moneda</td>
+					<td>Ieri</td>
+					<td>Azi</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</body>
+</html>
+
