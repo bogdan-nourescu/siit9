@@ -34,48 +34,22 @@
 			}
 		</style>
 		<script>
-			var list = [
-				{
-					difficulty:"green",
-					name:"Full page DIV",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","CSS","HTML","JSON","ES6"]
-				},
-				{
-					difficulty:"red",
-					name:"Full page age age DIV",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","JSON","ES6"]
-				},
-				{
-					difficulty:"blue",
-					name:"Fu DIV",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","CSS","ES6"]
-				},
-				{
-					difficulty:"blue",
-					name:"Fu DIV",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","CSS","ES6"]
-				},
-				{
-					difficulty:"yellow",
-					name:"Full DIV yellow",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","CSS","ES6"]
-				},
-				{
-					difficulty:"blue",
-					name:"Fu DIV blue",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","CSS","ES6"]
-				}
-			];
+			//https://linkuri-utile-siit9.firebaseio.com/.json
+			var list = {};
 			var indexEdit;
+			//del("-Lz8FWTo942Z-yHIJAGx");
+			async function getList(){
+				var response = await fetch("https://linkuri-utile-siit9.firebaseio.com/.json");
+				window.list = await response.json();
+				draw();
+			}
+			
 			function draw(){
 				var str = "";
-				for(var i=0;i<list.length;i++){
+				for(var i in list){
+					if(list[i]===null){
+						continue;
+					}
 					var tags = list[i].tags;
 					var strTags = "";
 					for(var j =0 ;j<tags.length;j++){
@@ -90,21 +64,25 @@
 							<td><a href="${list[i].url}" target="_blank">${list[i].name}</a></td>
 							<td>${strTags}</td>
 							<td><!--
-							  --><img class="icon" src="edit.svg" onclick="edit(${i})"/><!--
-						      --><img class="icon" src="delete.png" onclick="del(${i});"/><!--
+							  --><img class="icon" src="edit.svg" onclick="edit('${i}')"/><!--
+						      --><img class="icon" src="delete.png" onclick="del('${i}');"/><!--
 						 --></td>
 						</tr>
 					`
 				}
 				document.querySelector("table tbody").innerHTML = str;
 			}
-			function del(idx) {
+			async function del(idx) {
 				if(confirm(`Esti sigur ca vrei sa stergi ${list[idx].name} ?`)){
-					list.splice(idx,1);
-					draw();
+					//list.splice(idx,1);
+					
+					var response = await fetch(`https://linkuri-utile-siit9.firebaseio.com/${idx}.json`,{
+						method:"DELETE"
+					});
+					await getList();
 				}
 			}
-			function add(event){
+			async function add(event){
 				event.preventDefault();
 				var newLink = {
 					difficulty:document.querySelector("[name='difficulty']").value,
@@ -114,13 +92,21 @@
 				};
 				if(indexEdit===undefined){
 					//trebuie sa adaug la sfarsit
-					list.push(newLink);
+					//list.push(newLink);
+					var response = await fetch(`https://linkuri-utile-siit9.firebaseio.com/.json`,{
+						method:"POST",
+						body:JSON.stringify(newLink)
+					});
 				}else{
 					//inlocuiesc obiectul vechi cu cel nou preluat din formular.
-					list[indexEdit]=newLink;
+					//list[indexEdit]=newLink;
+					var response = await fetch(`https://linkuri-utile-siit9.firebaseio.com/${indexEdit}.json`,{
+						method:"PUT",
+						body:JSON.stringify(newLink)
+					});
 				}
 				
-				draw();
+				await getList();
 			}
 			function edit(idx){
 				document.querySelector("[name='difficulty']").value=list[idx].difficulty;
@@ -131,7 +117,7 @@
 			}
 		</script>
 	</head>
-	<body onload="draw()">
+	<body onload="getList();">
 		<form onsubmit="add(event);">
 			<fieldset>
 				<legend>Adaugare Link Util</legend>

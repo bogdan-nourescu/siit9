@@ -1,0 +1,64 @@
+[
+    {
+        "difficulty": "green",
+        "name": "Full page DIV",
+        "url": "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+        "tags": [
+            "JS",
+            "CSS",
+            "HTML",
+            "JSON",
+            "ES6"
+        ]
+    },
+    {
+        "difficulty": "red",
+        "name": "Full page age age DIV",
+        "url": "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+        "tags": [
+            "JS",
+            "JSON",
+            "ES6"
+        ]
+    },
+    {
+        "difficulty": "blue",
+        "name": "Fu DIV",
+        "url": "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+        "tags": [
+            "JS",
+            "CSS",
+            "ES6"
+        ]
+    },
+    {
+        "difficulty": "blue",
+        "name": "Fu DIV",
+        "url": "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+        "tags": [
+            "JS",
+            "CSS",
+            "ES6"
+        ]
+    },
+    {
+        "difficulty": "yellow",
+        "name": "Full DIV yellow",
+        "url": "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+        "tags": [
+            "JS",
+            "CSS",
+            "ES6"
+        ]
+    },
+    {
+        "difficulty": "blue",
+        "name": "Fu DIV blue",
+        "url": "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+        "tags": [
+            "JS",
+            "CSS",
+            "ES6"
+        ]
+    }
+]
