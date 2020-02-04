@@ -34,25 +34,45 @@
 			}
 		</style>
 		<script>
+			class Link {
+				constructor(difficulty, name,url, tags) {
+					this.difficulty = difficulty;
+					this.name = name;
+					this.url = url;
+					if (tags === undefined) {
+						this.tags = [];
+					} else if(typeof tags ==="string"){
+						this.tags = tags.split("\n");
+					}else{
+						this.tags = tags;
+					}
+				}
+				addTag(tag){
+					this.tags.push(tag);
+				}
+			}
+			
+			;
+			
 			var list = [
-				{
-					difficulty:"green",
-					name:"Full page DIV",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","CSS","HTML","JSON","ES6"]
-				},
-				{
-					difficulty:"red",
-					name:"Full page age age DIV",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","JSON","ES6"]
-				},
-				{
-					difficulty:"blue",
-					name:"Fu DIV",
-					url: "https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
-					tags: ["JS","CSS","ES6"]
-				},
+				new Link(
+					"green", 
+					"Full page DIV", 
+					"https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+					["JS","CSS","HTML","JSON","ES6"]
+				),
+				new Link(
+					"green", 
+					"Full page DIV", 
+					"https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+					["JS","CSS","HTML","JSON","ES6"]
+				),
+				new Link(
+					"green", 
+					"Full page DIV", 
+					"https://dev.to/lenmorld/css-gotcha-how-to-fill-page-with-a-div-270j",
+					["JS","CSS","HTML","JSON","ES6"]
+				),
 				{
 					difficulty:"blue",
 					name:"Fu DIV",
@@ -106,12 +126,12 @@
 			}
 			function add(event){
 				event.preventDefault();
-				var newLink = {
-					difficulty:document.querySelector("[name='difficulty']").value,
-					name:document.querySelector("[name='name']").value,
-					url: document.querySelector("[name='url']").value,
-					tags: document.querySelector("[name='tags']").value.split("\n")
-				};
+				var newLink = new Link(
+					document.querySelector("[name='difficulty']").value, 
+					document.querySelector("[name='name']").value, 
+					document.querySelector("[name='url']").value,
+					document.querySelector("[name='tags']").value
+				)
 				if(indexEdit===undefined){
 					//trebuie sa adaug la sfarsit
 					list.push(newLink);

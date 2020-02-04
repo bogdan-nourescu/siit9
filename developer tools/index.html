@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Contact form</title>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <script defer src="script.js"></script>
+    </head>
+    <body>
+        <div class="contactForm" >
+            <img src="img.jpg" alt="image" align="right">
+            <h3 class="hidden">Thank you for contacting us, <span id="spanName"></span></h3>
+            <form class="myForm"  onsubmit="return validation(event)">
+                <input type="text" placeholder="First Name" id="firstName" onsubmit="updateName(this, event);">
+                <input type="text"  placeholder="Last Name" id="lastName">
+                <br>
+
+                <span> Gender </span><br>
+                <label ><input onclick="gender;" type="radio" name="gender" value="male" id="male">M</label>
+                <br>
+                <input onclick="gender;" type="radio" name="gender" value="female" id="female"><label for="female">F</label>
+                <br>
+                <textarea placeholder="Your message here..." id="message"></textarea>
+                <br>
+                <button type="submit" class="submit">Submit</button>
+            </form>
+            
+        </div>
+    </body>
+</html>

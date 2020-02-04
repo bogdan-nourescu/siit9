@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			class Elev{
+				constructor(nume){
+					this.nume = nume;
+					this.note = [];
+				}
+				adaugaNota(nota){
+					this.note.push(nota);
+				}
+				medie(){
+					var sum = 0;
+					for(var i=0;i<this.note.length;i++){
+						sum += this.note[i];
+					}
+					if(this.note.length === 0){
+						return "";
+					}
+					return sum / this.note.length;
+				}
+				
+			}
+			var gigel = new Elev("Gigel");
+			gigel.adaugaNota(5);
+			gigel.adaugaNota(7);
+			console.log(gigel.medie());
+			
+			
+			class Elev2{
+				constructor(nume){
+					this.nume = nume;
+					this.note = [];
+					this.medie = "";
+				}
+				adaugaNota(nota){
+					this.note.push(nota);
+					
+					var sum = 0;
+					for(var i=0;i<this.note.length;i++){
+						sum += this.note[i];
+					}
+					if(this.note.length === 0){
+						this.medie = "";
+					}
+					this.medie = sum / this.note.length;
+				}
+				
+			}
+			var gigel2 = new Elev2("Gigel");
+			gigel2.adaugaNota(5);
+			gigel2.adaugaNota(7);
+			console.log(gigel2.medie);
+			
+			class Elev3{
+				constructor(nume){
+					this.nume = nume;
+					this.note = [];
+				}
+				adaugaNota(nota){
+					this.note.push(nota);
+				}
+				get medie(){
+					var sum = 0;
+					for(var i=0;i<this.note.length;i++){
+						sum += this.note[i];
+					}
+					if(this.note.length === 0){
+						return "";
+					}
+					return sum / this.note.length;
+				}
+				
+			}
+			
+			var gigel3 = new Elev3("Gigel");
+			gigel3.adaugaNota(5);
+			gigel3.adaugaNota(7);
+			console.log(gigel3.medie);
+			gigel3.medie = 5;
+			
+			class Elev4{
+				constructor(nume, prenume, initiala,numeNastere){
+					this.nume = nume;
+					this.prenume = prenume;
+					this.initiala = initiala;
+					if(numeNastere==="" || numeNastere === undefined){
+						this.numeNastere= nume;
+					}else{
+						this.numeNastere= numeNastere;
+					}
+				}
+				get numeComplet(){
+					//nume !== numeNastere: nume initiala prenume (numeNastere)
+					//nume === numeNastere: nume initiala prenume
+					return (this.nume !== this.numeNastere)?
+						`${this.nume} ${this.initiala} ${this.prenume} (${this.numeNastere})`:
+						`${this.nume} ${this.initiala} ${this.prenume}`
+				}
+				set numeComplet(val){
+					//nume prenume
+					//nume initiala prenume
+					//nume initiala prenume(numeNastere)
+					//nume prenume prenume
+					if(val.indexOf("(")>=0){
+						this.numeNastere = val.substring(val.indexOf("(")+1,val.length-1);
+						val = val.substring(0,val.indexOf("(")).trim();
+					}
+				}
+			}
+			var gigel4 = new Elev4("Gigel", "YYY", "F.");
+			console.log(gigel4.numeComplet);
+			
+			gigel4.numeComplet = "nume initiala prenume(numeNastere)";
+			console.log(gigel4.numeComplet);
+		</script>
+	</head>
+	<body >
+		
+	</body>
+</html>
+
