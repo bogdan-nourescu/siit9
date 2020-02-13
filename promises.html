@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<meta charset="UTF-8">
+		<style>
+			
+		</style>
+		<script>
+			//setTimeout
+			//setInterval
+			//requestAnimationFrame
+			//fetch
+			//xmlHttpRequest
+			async function delay(){
+				return new Promise((resolve, reject) => {
+					setTimeout( function() {
+						reject("eroare!");
+				    }, 5000);
+				});
+			}
+			
+			
+			function handleError(err){
+				console.warn(err);
+				return null;
+			}
+			async function showAlert(){
+				console.log(await delayedUpperCase("ana"));
+				
+				try{
+					await delayedUpperCase(5)
+				}catch(err){
+					handleError(err);
+				}
+				
+				//SAU
+				let raspuns = await (delayedUpperCase(5).catch(handleError));
+				console.log(raspuns);
+				
+			}
+			async function delayedUpperCase(param){
+				return new Promise((resolve, reject) => {
+					setTimeout( function() {
+						if(typeof param==="string"){
+							resolve(param.toUpperCase());
+						}else{
+							reject(param);
+						}
+				    }, 500);
+				});
+			}
+			
+			
+			
+			
+		</script>
+	</head>
+	<body onload="showAlert();">
+		
+	</body>
+</html>
+

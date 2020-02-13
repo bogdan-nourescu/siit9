@@ -1,0 +1,144 @@
+<script>
+    //this is always the object the method is called on.
+
+    //in case of f(), function is called on global object
+
+    //when not in strict mode, this in functions and inner functions IS GLOBAL OBJECT
+    //when in strict mode, this in functions and inner functions IS UNDEFINED
+
+
+    /////////////////////////////////////////////////////////
+    //// OBJECT
+    /////////////////////////////////////////////////////////
+    var o = {
+        age: 25,
+        getThis: function () {
+            return this;
+        },
+        getInnerFunctionThis: function () {
+            function inner() {
+                //inside this function this is the global object
+                return this;
+            }
+
+            return inner();
+        },
+        f1: function () {
+            console.log("o.this=", this);
+            console.log("o.this.age=", this.age);
+            setTimeout(function () {
+                //inside this function, this is the global object
+                console.log('setTimeout o.this=', this);
+                console.log('setTimeout o.this.age=', this.age);
+            })
+        },
+        f2: function () {
+            console.log("o.this=", this);
+            console.log("o.this.age=", this.age);
+            setTimeout(function () {
+                //inside this function, this is object that we called bind with
+                console.log('setTimeout o.this=', this);
+                console.log('setTimeout o.this.age=', this.age);
+            }.bind(this))
+        },
+        f2: function () {
+            console.log("o.this=", this);
+            console.log("o.this.age=", this.age);
+            setTimeout(() => {
+                //because of the arrow function, this becomes the THIS from the outer function, the expected this
+                console.log('setTimeout o.this=', this);
+                console.log('setTimeout o.this.age=', this.age);
+            })
+        }
+    };
+
+    /////////////////////////////////////////////////////////
+    console.log('--------------------------');
+    var oThis = o.getThis(); // uses o as this
+    console.log('othis=', oThis);
+
+    /////////////////////////////////////////////////////////
+    console.log('--------------------------');
+    var oInnerThis = o.getInnerFunctionThis(); // uses o as this
+    console.log('oInnerThis=', oInnerThis);
+
+    /////////////////////////////////////////////////////////
+    console.log('--------------------------');
+    o.f1(); // uses o as this
+    /* */
+
+
+    /////////////////////////////////////////////////////////
+    //// CLASS - The body of a class is executed in strict mode
+    /////////////////////////////////////////////////////////
+    console.log('--------------------------');
+
+    class Persoana {
+        constructor(nume) {
+            this.nume = nume;
+        }
+
+        getThis() {
+            return this;
+        }
+
+        getInnerFunctionThis() {
+            function inner() { //function gets called from p object
+                return this; //undefined
+            }
+
+            return inner();
+        }
+
+        sayHi() {
+            console.log('hi from this=', this);
+            console.log('hi from this.nume=', this.nume);
+            setTimeout(function () { //function gets called from global object
+                console.log('setTimeout hi from this=', this);
+                console.log('setTimeout hi from this.nume=', this.nume);
+            });
+        }
+    }
+
+    var p = new Persoana('Popescu');
+
+    /////////////////////////////////////////////////////////
+
+    console.log('--------------------------');
+    var pThis = p.getThis();
+    console.log("pThis=", pThis);
+
+    /////////////////////////////////////////////////////////
+    console.log('--------------------------');
+    var pInnerFunctionThis = p.getInnerFunctionThis();
+    console.log("pInnerFunctionThis=", pInnerFunctionThis);
+
+    console.log('--------------------------');
+    p.sayHi();
+
+
+    /////////////////////////////////////////////////////////
+    //// CALLBACK
+    /////////////////////////////////////////////////////////
+    function callback() {
+        console.log('callback this=', this);
+        console.log('callback this.v=', this.v);
+    }
+
+    function func(c) { //c acts like inner function
+        this.v = 100;
+        console.log('func this=', this);
+        console.log('func this.v=', this.v);
+        c();
+    }
+
+
+    /////////////////////////////////////////////////////////
+    console.log('--------------------------');
+    new func(callback); //uses new func object as this
+    /////////////////////////////////////////////////////////
+    console.log('--------------------------');
+    func(callback); //uses global object as this
+
+
+</script>

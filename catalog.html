@@ -7,6 +7,15 @@
 			
 		</style>
 		<script>
+			/*function Elev(nume){
+				this.nume = nume;
+				this.note = [];
+			}
+			Elev.prototype.adaugaNota = function (nota){
+				this.note.push(nota);
+			}*/
+		
+		
 			class Elev{
 				constructor(nume){
 					this.nume = nume;
@@ -20,6 +29,7 @@
 					for(var i=0;i<this.note.length;i++){
 						sum += this.note[i];
 					}
+
 					if(this.note.length === 0){
 						return "";
 					}
@@ -124,6 +134,7 @@
 			class Catalog{
 				constructor(){
 					this.elevi=[];
+					this.elevAscultat = undefined;
 				}
 				addElev(str){
 					var elev = new Elev3(str);
@@ -149,6 +160,7 @@
 						} else{
 							return 0
 						}
+						var x;
 					});
 				}
 				sortDesc(){
@@ -209,7 +221,7 @@
 			function drawElevi(){
 				var str = ""
 				for(var i=0;i<catalog.elevi.length;i++){
-					var elev = catalog.elevi[i];
+					let elev = catalog.elevi[i];
 					str+=`
 						<tr>
 							<td>${elev.nume}</td>
