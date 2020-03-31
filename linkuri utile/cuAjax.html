@@ -37,6 +37,8 @@
 			//https://linkuri-utile-siit9.firebaseio.com/.json
 			var list = {};
 			var indexEdit;
+			
+			
 			//del("-Lz8FWTo942Z-yHIJAGx");
 			async function getList(){
 				var response = await fetch("https://linkuri-utile-siit9.firebaseio.com/.json");
@@ -93,6 +95,11 @@
 				if(indexEdit===undefined){
 					//trebuie sa adaug la sfarsit
 					//list.push(newLink);
+					/*list = [
+						...list,
+						newLink
+					]*/
+					
 					var response = await fetch(`https://linkuri-utile-siit9.firebaseio.com/.json`,{
 						method:"POST",
 						body:JSON.stringify(newLink)

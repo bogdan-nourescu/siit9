@@ -1,0 +1,28 @@
+<script>
+	function draw(){
+		var str = "";
+		for(var i =0;i<20;i++){
+			str+=`<li onclick="f(${i})">ASdasdasd ${i}</li>`;
+		}
+		document.querySelector("ul").innerHTML = str;
+	}
+	function f(index){
+		alert(index);
+	}
+</script>
+<body onload="draw();">
+	<ul>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+		<li>ASdasdasd</li>
+	</ul>
+
+</body>

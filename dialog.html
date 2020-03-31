@@ -1,0 +1,214 @@
+<html>
+<head>
+    <style>
+        #dialog{
+            position: fixed;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+        #overlay{
+            position: absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            background-color: rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        #dialogContent{
+            position: relative;
+            max-width: 80%;
+            max-height: 90%;
+            overflow: auto;
+            background-color: white;
+            z-index: 2;
+        }
+        .hidden{
+            display: none!important;
+        }
+        #closeDialog{
+            color:red;
+            font-weight: bold;
+            position: absolute;
+            top:3px;
+            right: 3px;
+            cursor: pointer;
+            border:1px solid grey;
+            padding:0 3px;
+        }
+        body{
+            position: relative;
+            margin:0;
+            padding-bottom: 30px;
+        }
+        footer{
+            height:30px;
+            position: absolute;
+            bottom:0;
+            left:0;
+            right: 0;
+            background-color: #0b8043;
+            text-align: center;
+        }
+        .overflowHidden{
+            overflow:hidden;
+        }
+    </style>
+    <script>
+        function showDialog(){
+            document.querySelector("#dialog").classList.remove("hidden");
+            document.body.classList.add("overflowHidden")
+        }
+        function hideDialog(){
+            document.querySelector("#dialog").classList.add("hidden");
+            document.body.classList.remove("overflowHidden")
+        }
+    </script>
+</head>
+<body>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p>
+<p>adasdasdasda</p><button onclick="showDialog()"></button>
+
+<p>xxxxxxxxxxxxx</p>
+<footer>Footer test</footer>
+
+<div id="dialog" class="hidden" >
+    <div id="overlay" onclick="hideDialog()"></div>
+    <div id="dialogContent">
+        <div id="closeDialog" onclick="hideDialog()">X</div>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+        <p>adasdasdasda</p>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
